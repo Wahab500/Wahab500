@@ -25,6 +25,6 @@ def modified_cholesky(a):
             la.cholesky(a_mod)
             successful = True
         except la.LinAlgError:
-            identity_factor = np.max([2 * identity_factor, 0.7 * la.norm(a, 'fro')])
+            identity_factor = np.max([2 * identity_factor, 0.5 * la.norm(a, 'fro')])
             a_mod = a + identity_factor * identity
     return [a_mod, identity_factor]
